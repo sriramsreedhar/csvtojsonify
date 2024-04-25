@@ -23,7 +23,7 @@ A simple tool to convert CSV files to JSON format.
 
 ## Sample Run
 
-(venv-3.12) % pip install csvtojsonify
+>>(venv-3.12) % pip install csvtojsonify
 
 >>(venv-3.12) % csvtojsonify
 Enter the input CSV file name: somefile.csv
