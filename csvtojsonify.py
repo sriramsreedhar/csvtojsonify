@@ -1,27 +1,31 @@
+# csvtojsonify.py
 import csv
 import json
 
-# Prompt user for input file name
-input_file = input("Enter the input CSV file name: ")
+def convert_csv_to_json(csv_file, json_file):
+    with open(csv_file, 'r') as csvfile:
+        reader = csv.reader(csvfile)
+        data = list(reader)
 
-# Check if input file name ends with ".csv"
-if not input_file.endswith(".csv"):
-    print("Error: Input file name must end with '.csv'")
-    exit(1)
+    with open(json_file, 'w') as jsonfile:
+        json.dump(data, jsonfile)
 
-# Prompt user for output file name
-output_file = input("Enter the output JSON file name: ")
+if __name__ == "__main__":
+    # Get the input and output file names from the user
+    csv_file = input("Enter the input CSV file name: ")
+    json_file = input("Enter the output JSON file name: ")
 
-# Check if output file name ends with ".json"
-if not output_file.endswith(".json"):
-    print("Error: Output file name must end with '.json'")
-    exit(1)
+    # Check if input file name ends with ".csv"
+    if not csv_file.endswith(".csv"):
+        print("Error: Input file name must end with '.csv'")
+        exit(1)
 
-with open(input_file, 'r') as csvfile:
-    reader = csv.reader(csvfile)
-    data = list(reader)
+    # Check if output file name ends with ".json"
+    if not json_file.endswith(".json"):
+        print("Error: Output file name must end with '.json'")
+        exit(1)
 
-with open(output_file, 'w') as jsonfile:
-    json.dump(data, jsonfile)
+    # Call the conversion function
+    convert_csv_to_json(csv_file, json_file)
 
-print(f"Conversion successful! The new JSON file is {output_file}")
+    print("Conversion successful! The new JSON file is", json_file)
