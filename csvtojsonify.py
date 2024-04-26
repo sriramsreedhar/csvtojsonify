@@ -10,7 +10,7 @@ def convert_csv_to_json(csv_file, json_file):
     with open(json_file, 'w') as jsonfile:
         json.dump(data, jsonfile)
 
-if __name__ == "__main__":
+def main():
     # Get the input and output file names from the user
     csv_file = input("Enter the input CSV file name: ")
     json_file = input("Enter the output JSON file name: ")
@@ -18,14 +18,17 @@ if __name__ == "__main__":
     # Check if input file name ends with ".csv"
     if not csv_file.endswith(".csv"):
         print("Error: Input file name must end with '.csv'")
-        exit(1)
+        return
 
     # Check if output file name ends with ".json"
     if not json_file.endswith(".json"):
         print("Error: Output file name must end with '.json'")
-        exit(1)
+        return
 
     # Call the conversion function
     convert_csv_to_json(csv_file, json_file)
 
     print("Conversion successful! The new JSON file is", json_file)
+
+if __name__ == "__main__":
+    main()
