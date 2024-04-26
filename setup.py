@@ -10,7 +10,7 @@ setup(
         ],
     },
     install_requires=[],
-    python_requires='>=3.10',
+    python_requires='>=3.9.6',
     author='Sriram Sreedhar',
     author_email='sriramsreedhar003@gmail.com',
     description='A tool to convert CSV files to JSON.',
